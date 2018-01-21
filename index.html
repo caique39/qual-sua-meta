@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width"/>
+        <title>Qual sua meta?</title>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar">
+                <h1>
+                    Qual sua meta?
+                    <span id="goal"></span>
+                </h1>
+            </nav>
+            <main class="main">
+                <p id="amount"></p>
+                <p id="detail-goal"></p>
+                <ul id="coins-list"></ul>
+            </main>
+            <footer class="footer">
+                <p>
+                    Made with
+                    <span class="heart">&hearts;</span> by
+                    <a href="https://github.com/caique39"
+                        class="link"
+                        title="Github page">caique39</a>
+                </p>
+                <p>
+                    Icons made by
+                    <a href="https://www.flaticon.com/authors/pixel-perfect"
+                        class="link"
+                        title="Pixel perfect">Pixel perfect</a>
+                        from
+                    <a href="https://www.flaticon.com/"
+                        class="link"
+                        title="Flaticon">www.flaticon.com.</a>
+                </p>
+            </footer>
+        </div>
+
+        <!-- Config -->
+        <script type="text/javascript">
+            var MY_GOAL = {
+                currency: 'BRL', // Moeda para mostragem dos valores.
+                coins: { // Moedas do seu portifólio.
+                    bitcoin: 0.5,
+                    ethereum: 1.7
+                },
+                goal: 50000 // Sua meta!
+            };
+        </script>
+
+        <!-- Dependencies -->
+        <script src="libs/axios/dist/axios.min.js"></script>
+
+        <!-- Source -->
+        <script src="dist/main.js"></script>
+    </body>
+</html>

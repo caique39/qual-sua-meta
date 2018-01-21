@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Regular.ttf');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: rgba(142, 68, 173, .6);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+	background-color: transparent;
+	width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #763b8e;
+	border-radius: 5px;
+}
+
+/* Elements */
+.container {
+    background: linear-gradient(141deg, #9b59b6 0%, #9e5eb8 51%, #8e55ad 75%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Ubuntu';
+    height: 100vh;
+    padding: 40px 80px;
+    width: 100vw;
+}
+
+.main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.link {
+    color: #ffffff;
+    text-decoration-style: dotted;
+}
+
+.heart {
+    color: #e91e63;
+    font-size: 1.5em;
+}
+
+/* Components */
+#coins-list {
+    margin: 20px 0;
+    max-height: 50vh;
+    height: 41vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#detail-goal {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.goal-success {
+    background-color: #ffffff;
+    color: #8e44ad !important;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.coin-list {
+    background-color: #8e44ad;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    font-size: 1.5em;
+    justify-content: space-between;
+    list-style: none;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding: 10px;
+    transition: all 1s ease-in-out;
+}
+
+.coin-list.no-show {
+    background-color: #8e47ad;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: line-through;
+}
+
+.coin-list > .coin {
+    font-weight: bold;
+    min-width: 450px;
+    text-transform: capitalize;
+    width: 450px;
+}
+
+.list-item {
+    padding: 0 15px
+}
+
+.use-coin {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.use-coin > .show-coin {
+    width: 32px;
+}
+
+#amount {
+    font-size: 8em;
+}

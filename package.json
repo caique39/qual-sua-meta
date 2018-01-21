@@ -1,0 +1,25 @@
+{
+  "name": "what-is-your-goal",
+  "version": "1.0.0",
+  "description": "Indique sua moedas e o objetivo que deseja alcançar. Com isso, acompanhará como está caminhando para o seu objetivo.",
+  "main": "js/main.js",
+  "scripts": {
+    "dev": "watch 'npm run build' js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist/ && babel js --out-dir dist/",
+    "start": "npm run build"
+  },
+  "author": "Caique Santana",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.14.0",
+    "rimraf": "^2.6.2",
+    "watch": "^1.0.2"
+  }
+}
