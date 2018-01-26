@@ -9,11 +9,6 @@
 > `index.html` e abra no seu navegador favorito! Isso é importante porque não coloca nenhuma
 > referência do seu portifólio online.
 
-## Observações:
-
-- Usamos o [CoinMarketCap] para obter os dados, portanto, a nome da moeda aqui adicionada bater com o id da mesma na API;
-- Foi testado apenas no Google Chrome e não está responsivo (ainda) \`:^P.
-
 ### Exemplo:
 
 ```html
@@ -28,5 +23,11 @@
     };
 </script>
 ```
+
+## Observações:
+
+- Usamos o [CoinMarketCap] para obter os dados, portanto, a nome da moeda aqui adicionada deve corresponder com o id da mesma na API;
+- Foi testado apenas no Google Chrome e não está responsivo (ainda) \`:^P.
+
 
 [CoinMarketCap]: <https://coinmarketcap.com>
