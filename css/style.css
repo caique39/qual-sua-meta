@@ -65,23 +65,17 @@
 #coins-list {
     margin: 20px 0;
     max-height: 50vh;
-    height: 41vh;
+    height: 50vh;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
 #detail-goal {
-    color: rgba(255, 255, 255, 0.9);
+    color: #ffffff;
     font-size: 1.5em;
     font-style: italic;
-}
-
-.goal-success {
-    background-color: #ffffff;
-    color: #8e44ad !important;
-    padding: 8px;
-    border-radius: 5px;
-    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    white-space: nowrap;
 }
 
 .coin-list {
@@ -128,4 +122,21 @@
 
 #amount {
     font-size: 8em;
+}
+
+
+.progress {
+    background-color: rgba(255, 250, 230, 0.4);
+}
+
+.progress,
+.progress-goal {
+    border-radius: 5px;
+}
+
+.progress-goal {
+    background-color: #fee;
+    padding: 10px 15px;
+    width: 100%;
+    transition: width 500ms ease-in-out;
 }

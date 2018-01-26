@@ -35,6 +35,7 @@
             return coin => {
                 coin.price = +coin[`price_${currency.toLowerCase()}`];
                 coin.balance = coins[coin.id] * coin.price;
+                coin.balance_btc = coins[coin.id] * coin.price_btc;
 
                 return coin;
             };
@@ -51,6 +52,7 @@
                 price: +coin.price,
                 price_btc: convertToBTC(+coin.price_btc),
                 balance: convertToBRL(isLocked ? 0 : +coin.balance),
+                balance_btc: convertToBTC(isLocked ? 0 : +coin.balance_btc),
                 balanceRaw: isLocked ? 0 : +coin.balance,
                 importance: percentageBalanceByAmount(isLocked ? 0 : +coin.balance, amount)
             };
@@ -75,7 +77,7 @@
     const listCoinComponent = coin => {
         return `<li class="coin-list ${checkIfIsLocked(coin.symbol) ? 'no-show' : ''}">
                 <span class="list-item coin">${coin.name} (${coin.price_btc})</span>
-                <span class="list-item balance">${coin.balance}</span>
+                <span class="list-item balance">${coin.balance} (${coin.balance_btc})</span>
                 <span class="list-item represent-percentage">${coin.importance}</span>
                 <button class="list-item use-coin" data-coin=${coin.symbol}>
                     <img class="show-coin"
@@ -98,15 +100,17 @@
 
     const checkGoal = (amount, goal) => {
         const detailGoalNode = document.getElementById('detail-goal');
+        const progressNode = document.getElementById('progress');
         const printGoal = print(detailGoalNode);
+        const progress = percentageBalanceByAmount(amount, goal);
 
         if (amount >= goal) {
             printGoal('Parabéns! Você atingiu sua meta! Que tal aproveitar seus lucros?');
-            detailGoalNode.classList.add('goal-success');
         } else {
-            printGoal('Você já atingiu ' + `${percentageBalanceByAmount(amount, goal)} da meta!`);
-            detailGoalNode.classList.remove('goal-success');
+            printGoal(`Você já atingiu <strong>${progress}</strong> da meta!`);
         }
+
+        progressNode.style.width = +progress.replace('%', '') >= 100 ? '100%' : progress;
     };
 
     const init = async (coins, currency, goal) => {

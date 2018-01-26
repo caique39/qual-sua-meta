@@ -18,7 +18,11 @@
             </nav>
             <main class="main">
                 <p id="amount"></p>
-                <p id="detail-goal"></p>
+                <div class="progress">
+                    <div id="progress" class="progress-goal">
+                        <p id="detail-goal"></p>
+                    </div>    
+                </div>
                 <ul id="coins-list"></ul>
             </main>
             <footer class="footer">
@@ -45,12 +49,13 @@
         <!-- Config -->
         <script type="text/javascript">
             var MY_GOAL = {
-                currency: 'BRL', // Moeda para mostragem dos valores.
-                coins: { // Moedas do seu portifólio.
-                    bitcoin: 0.5,
-                    ethereum: 1.7
+                currency: 'BRL', 
+                coins: { 
+                    bitcoin: 0.45,
+                    ethereum: 1.7,
+                    mothership: 1500
                 },
-                goal: 50000 // Sua meta!
+                goal: 50000
             };
         </script>
 
