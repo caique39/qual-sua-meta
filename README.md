@@ -28,18 +28,18 @@
 
 ## Observações:
 
-- Usamos o [CoinMarketCap] para obter os dados, portanto, a nome da moeda aqui adicionada deve corresponder com o id da mesma na API;
+- Usamos o [CoinMarketCap] para obter os dados, portanto, a nome da moeda aqui adicionada deve corresponder com o *ID* da mesma na API;
 - Foi testado apenas no Google Chrome e não está responsivo (ainda) \`:^P.
 
-### Como obter id da moeda?
+### Como obter ID da moeda?
 
-Acesse o [CoinMarketCap], pesquise sobre a moeda desejada, e confira a URL.
-O ID vem logo após o termo `currencies`.
+Acesse o [CoinMarketCap], pesquise sobre a moeda desejada, e confira a *URL*.
+O *ID* vem logo após o termo `currencies`.
 
 #### Exemplo:
 
-- *Moeda*: Request Network;
-- *URL*: `https://coinmarketcap.com/currencies/request-network/`;
-- *Logo*, o ID é `request-network`.
+- **Moeda**: Request Network;
+- **URL**: `https://coinmarketcap.com/currencies/request-network/`;
+- **Log**, o ID é `request-network`.
 
 [CoinMarketCap]: <https://coinmarketcap.com>
