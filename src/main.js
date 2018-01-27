@@ -1,18 +1,34 @@
 (function (axios, document, window) {
     let LOCKED_COINS = []
 
+    // MY_GOAL :: Window
+    const COINS = window.MY_GOAL.coins
+    const CURRENCY = window.MY_GOAL.currency
+    const GOAL = window.MY_GOAL.goal
+
+    // * :: Document
+    const balanceNode = document.getElementById('amount')
+    const goalNode = document.getElementById('goal')
+    const useCoinNode = document.getElementsByClassName('use-coin')
+    const detailGoalNode = document.getElementById('detail-goal')
+    const progressNode = document.getElementById('progress')
+
     const print = node => data => node.innerHTML = data
     const sortDescBy = (prop, data) => data.sort((a, b) => b[prop] - a[prop])
-    const convertToBTC = value => `${Number(value).toFixed(8)} BTC`
     const arrayLikeToArray = arrayLike => Array.from(arrayLike)
+
     const checkIfIsLocked = name => LOCKED_COINS.indexOf(name) === -1 ? false : true
 
+    const convertToBTC = value => `${Number(value).toFixed(8)} BTC`
     const convertToBRL = value => `R$ ${value.toFixed(2)
         .toString()
         .replace('.', ',')}`
 
-    const percentageBalanceByAmount = (balance, amount) => `${(+balance / +amount * 100)
-        .toFixed(2)}%`
+    const percentageBalanceByAmount = (balance, amount) => {
+        const percentage = (+balance / +amount) * 100 || 0
+
+        return `${percentage.toFixed(2)}%`
+    }
 
     const getDataOfCoins = (coins, currency) => {
         const from = 'https://api.coinmarketcap.com/v1/ticker'
@@ -62,22 +78,21 @@
         }
     }
 
-    const useCoinButton = function () {
-        const symbol = this.dataset.coin
-        const IsBlocked = name => LOCKED_COINS.indexOf(name)
+    const useCoinButton = node => {
+        const symbol = node.dataset.coin
+        const isBlocked = name => LOCKED_COINS.indexOf(name)
 
-        if (IsBlocked(symbol) === -1)
+        if (!~isBlocked(symbol)) {
             LOCKED_COINS.push(symbol)
-        else
-            LOCKED_COINS.splice(IsBlocked(symbol), 1)
+        } else {
+            LOCKED_COINS.splice(isBlocked(symbol), 1)
+        }
 
-        init(window.MY_GOAL.coins, window.MY_GOAL.currency, window.MY_GOAL.goal)
-
-        return
+        init()
     }
 
     const handleUseCoinClick = node => {
-        return node.addEventListener('click', useCoinButton.bind(node), false)
+        return node.addEventListener('click', useCoinButton.bind(null, node), false)
     }
 
     const listCoinComponent = coin => {
@@ -94,6 +109,14 @@
             </li>`
     }
 
+    const mapCoinList = (data, amount) => {
+        const coinsList = data
+            .map(mergeBalanceAndSetPrice(COINS)(CURRENCY))
+            .map(coinsDataGram(amount))
+
+        return sortDescBy('balanceRaw', coinsList)
+    }
+
     const showList = coinsList => {
         const printList = print(document.getElementById('coins-list'))
         const listCoinsDOM = coinsList
@@ -102,13 +125,9 @@
 
         printList('')
         printList(listCoinsDOM)
-
-        return
     }
 
     const checkGoal = (amount, goal) => {
-        const detailGoalNode = document.getElementById('detail-goal')
-        const progressNode = document.getElementById('progress')
         const printGoal = print(detailGoalNode)
         const progress = percentageBalanceByAmount(amount, goal)
 
@@ -118,30 +137,24 @@
             printGoal(`Você já atingiu <strong>${ progress }</strong> da meta!`)
         }
 
-        progressNode.style.width = +progress.replace('%', '') >= 100 ? '100%' : progress;
+        progressNode
+            .style
+            .width = +progress.replace('%', '') >= 100 ? '100%' : progress
     }
 
-    const init = async (coins, currency, goal) => {
-        const balanceNode = document.getElementById('amount')
-        const goalNode = document.getElementById('goal')
-        const useCoinNode = document.getElementsByClassName('use-coin')
+    const init = async () => {
+        const data = await getDataOfCoins(COINS, CURRENCY)
+        const amount = getAmountByCoins(data, COINS, CURRENCY)
 
-        const data = await getDataOfCoins(coins, currency)
-        const amount = getAmountByCoins(data, coins, currency)
-
-        print(goalNode)(`${convertToBRL(goal)}.`)
+        print(goalNode)(`${convertToBRL(GOAL)}.`)
         print(balanceNode)(`${convertToBRL(amount)}.`)
-        checkGoal(amount, goal)
 
-        const coinsList = data
-            .map(mergeBalanceAndSetPrice(coins)(currency))
-            .map(coinsDataGram(amount))
+        checkGoal(amount, GOAL)
+        showList(mapCoinList(data, amount))
 
-        sortDescBy('balanceRaw', coinsList)
-        showList(coinsList)
         arrayLikeToArray(useCoinNode).forEach(handleUseCoinClick)
     }
 
-    init(window.MY_GOAL.coins, window.MY_GOAL.currency, window.MY_GOAL.goal)
-    setInterval(() => init(window.MY_GOAL.coins, window.MY_GOAL.currency, window.MY_GOAL.goal), 10000)
+    init()
+    setInterval(() => init(), 10000)
 })(axios, document, window)

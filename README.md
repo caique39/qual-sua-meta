@@ -6,7 +6,7 @@
 ## Como usá-la?
 
 > Simples! Faça download dos arquivos em seu computador, edite a variável global disponível no
-> `index.html` e abra no seu navegador favorito! Isso é importante porque não coloca nenhuma
+> `public/index.html` e abra no seu navegador favorito! Isso é importante porque não coloca nenhuma
 > referência do seu portifólio online.
 
 ### Exemplo:
