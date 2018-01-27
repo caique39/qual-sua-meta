@@ -40,6 +40,6 @@ O *ID* vem logo após o termo `currencies`.
 
 - **Moeda**: Request Network;
 - **URL**: `https://coinmarketcap.com/currencies/request-network/`;
-- **Log**, o ID é `request-network`.
+- **Logo**, o ID é `request-network`.
 
 [CoinMarketCap]: <https://coinmarketcap.com>
