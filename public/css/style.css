@@ -45,10 +45,10 @@
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .link {
@@ -63,9 +63,9 @@
 
 /* Components */
 #coins-list {
+    height: 50vh;
     margin: 20px 0;
     max-height: 50vh;
-    height: 50vh;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -112,8 +112,14 @@
 .use-coin {
     background: none;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     outline: none;
+    transition: all 500ms ease-in-out;
+}
+
+.use-coin:hover {
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .use-coin > .show-coin {
@@ -137,6 +143,6 @@
 .progress-goal {
     background-color: #fee;
     padding: 10px 15px;
-    width: 100%;
     transition: width 500ms ease-in-out;
+    width: 100%;
 }

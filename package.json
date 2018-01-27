@@ -21,5 +21,9 @@
     "eslint": "^4.14.0",
     "rimraf": "^2.6.2",
     "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "currencyformatter.js": "^2.0.0"
   }
 }

@@ -1,4 +1,4 @@
-(function (axios, document, window) {
+(function (axios, OSREC, document, window) {
     let LOCKED_COINS = []
 
     // MY_GOAL :: Window
@@ -20,9 +20,9 @@
     const checkIfIsLocked = name => LOCKED_COINS.indexOf(name) === -1 ? false : true
 
     const convertToBTC = value => `${Number(value).toFixed(8)} BTC`
-    const convertToBRL = value => `R$ ${value.toFixed(2)
-        .toString()
-        .replace('.', ',')}`
+    const convertTo = currency => value => OSREC.CurrencyFormatter
+        .format(+value, { currency: currency.toUpperCase() })
+    const convertToDefault = convertTo(CURRENCY)
 
     const percentageBalanceByAmount = (balance, amount) => {
         const percentage = (+balance / +amount) * 100 || 0
@@ -70,7 +70,7 @@
                 symbol: coin.symbol,
                 price: +coin.price,
                 price_btc: convertToBTC(+coin.price_btc),
-                balance: convertToBRL(isLocked ? 0 : +coin.balance),
+                balance: convertToDefault(isLocked ? 0 : +coin.balance),
                 balance_btc: convertToBTC(isLocked ? 0 : +coin.balance_btc),
                 balanceRaw: isLocked ? 0 : +coin.balance,
                 importance: percentageBalanceByAmount(isLocked ? 0 : +coin.balance, amount)
@@ -103,8 +103,8 @@
                 <button class="list-item use-coin" data-coin=${coin.symbol}>
                     <img class="show-coin"
                         src="img/visibility.svg"
-                        alt="Remover moeda da lista"
-                        title="Remover moeda da lista">
+                        alt="Não contabilizar moeda"
+                        title="Não contabilizar moeda">
                 </button>
             </li>`
     }
@@ -146,8 +146,8 @@
         const data = await getDataOfCoins(COINS, CURRENCY)
         const amount = getAmountByCoins(data, COINS, CURRENCY)
 
-        print(goalNode)(`${convertToBRL(GOAL)}.`)
-        print(balanceNode)(`${convertToBRL(amount)}.`)
+        print(goalNode)(`${convertToDefault(GOAL)}.`)
+        print(balanceNode)(`${convertToDefault(amount)}`)
 
         checkGoal(amount, GOAL)
         showList(mapCoinList(data, amount))
@@ -157,4 +157,4 @@
 
     init()
     setInterval(() => init(), 10000)
-})(axios, document, window)
+})(axios, OSREC, document, window)

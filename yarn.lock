@@ -670,100 +670,6 @@ commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
 
-component-classes@1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/component-classes/-/component-classes-1.2.3.tgz#f6f42977f890b37737b250f6e64fa2a77557a990"
-  dependencies:
-    component-indexof "0.0.3"
-
-component-closest@*:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/component-closest/-/component-closest-1.0.1.tgz#1ed0464132fc88a3510a2dabec079695789fb1b5"
-  dependencies:
-    component-matches-selector "~0.1.6"
-
-component-css@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/component-css/-/component-css-0.0.6.tgz#acb9606395860ec595d38fee84f2a206495c570f"
-  dependencies:
-    component-each "~0.2.2"
-    debug "*"
-    to-camel-case "0.2.1"
-    within-document "0.0.1"
-
-component-delegate@0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/component-delegate/-/component-delegate-0.2.3.tgz#523ec3a0538fdc85e25e9b4ae4c5e0606875f7fc"
-  dependencies:
-    component-closest "*"
-    component-event "*"
-
-component-dom@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/component-dom/-/component-dom-1.0.8.tgz#096662ceb3ba7700bd6b661ada1c2d4483d461c1"
-  dependencies:
-    component-classes "1.2.3"
-    component-css "0.0.6"
-    component-delegate "0.2.3"
-    component-each "0.2.6"
-    component-event "0.1.4"
-    component-query "0.0.3"
-    component-value "1.1.0"
-    domify "1.3.2"
-    matches-selector "1.0.0"
-    object-keys "1.0.3"
-    text-content "0.0.3"
-    to-function "2.0.6"
-    trim "0.0.1"
-    yields-traverse "0.1.1"
-
-component-each@0.2.6, component-each@~0.2.2:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/component-each/-/component-each-0.2.6.tgz#991faf31ef4fcafbad04237124d381b3394941d5"
-  dependencies:
-    component-type "1.0.0"
-    to-function "2.0.6"
-
-component-event@*:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/component-event/-/component-event-0.2.0.tgz#8689a7c25a7dd0afe7e2e8408091d5b9e12ce196"
-
-component-event@0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/component-event/-/component-event-0.1.4.tgz#3de78fc28782381787e24bf2a7c536bf0142c9b4"
-
-component-indexof@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/component-indexof/-/component-indexof-0.0.3.tgz#11d091312239eb8f32c8f25ae9cb002ffe8d3c24"
-
-component-matches-selector@~0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/component-matches-selector/-/component-matches-selector-0.1.6.tgz#7b630e04e7e0c3b0019f31749fd70af5ed8b972e"
-  dependencies:
-    component-query "*"
-
-component-props@*:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/component-props/-/component-props-1.1.1.tgz#f9b7df9b9927b6e6d97c9bd272aa867670f34944"
-
-component-query@*, component-query@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/component-query/-/component-query-0.0.3.tgz#07f49dab7071fa9606725df53e607f468acdaacf"
-
-component-type@*:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/component-type/-/component-type-1.2.1.tgz#8a47901700238e4fc32269771230226f24b415a9"
-
-component-type@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/component-type/-/component-type-1.0.0.tgz#1ed8812e32dd65099d433570757f111ea3d3d871"
-
-component-value@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/component-value/-/component-value-1.1.0.tgz#060c51e81f3354d80ac34e8daeed170c616155fe"
-  dependencies:
-    component-type "*"
-
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -806,21 +712,25 @@ cryptiles@2.x.x:
   dependencies:
     boom "2.x.x"
 
+currencyformatter.js@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/currencyformatter.js/-/currencyformatter.js-2.0.0.tgz#fb7fc690a25f6b940292715b21be87422aab7883"
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
   dependencies:
     assert-plus "^1.0.0"
 
-debug@*, debug@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  dependencies:
-    ms "2.0.0"
-
 debug@^2.2.0, debug@^2.6.8:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
+  dependencies:
+    ms "2.0.0"
+
+debug@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
     ms "2.0.0"
 
@@ -867,10 +777,6 @@ doctrine@^2.0.2:
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-2.0.2.tgz#68f96ce8efc56cc42651f1faadb4f175273b0075"
   dependencies:
     esutils "^2.0.2"
-
-domify@1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/domify/-/domify-1.3.2.tgz#40fd0e3c53167bc70800941794df65015d9c89ca"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
@@ -1543,14 +1449,6 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
-matches-selector@*:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/matches-selector/-/matches-selector-1.2.0.tgz#d1814e7e8f43e69d22ac33c9af727dc884ecf12a"
-
-matches-selector@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/matches-selector/-/matches-selector-1.0.0.tgz#434833447026a25ea4999edab18e4b8892b25721"
-
 merge@^1.1.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
@@ -1672,10 +1570,6 @@ oauth-sign@~0.8.1:
 object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
-
-object-keys@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.0.3.tgz#1b679dbec65103da488edb32f782bd9a15e3de0a"
 
 object.omit@^2.0.0:
   version "2.0.1"
@@ -2118,10 +2012,6 @@ tar@^2.2.1:
     fstream "^1.0.2"
     inherits "2"
 
-text-content@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/text-content/-/text-content-0.0.3.tgz#718ea6692c1880cd8e2637f4b0ee2c819dc50be9"
-
 text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
@@ -2136,31 +2026,9 @@ tmp@^0.0.33:
   dependencies:
     os-tmpdir "~1.0.2"
 
-to-camel-case@0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/to-camel-case/-/to-camel-case-0.2.1.tgz#200799152cfa5e752b7aad0dfe8b7af105cafaa2"
-  dependencies:
-    to-space-case "0.1.2"
-
 to-fast-properties@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
-
-to-function@2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/to-function/-/to-function-2.0.6.tgz#7d56cd9c3b92fa8dbd7b22e83d51924de740ebc5"
-  dependencies:
-    component-props "*"
-
-to-no-case@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/to-no-case/-/to-no-case-0.1.1.tgz#cf33c70e0f28168d95e4159abf150e8c542ef9fe"
-
-to-space-case@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/to-space-case/-/to-space-case-0.1.2.tgz#9a66be3ebe53f2779f687f0262effd1fc5b6d15e"
-  dependencies:
-    to-no-case "0.1.1"
 
 tough-cookie@~2.3.0:
   version "2.3.3"
@@ -2171,10 +2039,6 @@ tough-cookie@~2.3.0:
 trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
-
-trim@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/trim/-/trim-0.0.1.tgz#5858547f6b290757ee95cccc666fb50084c460dd"
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
@@ -2245,10 +2109,6 @@ wide-align@^1.1.0:
   dependencies:
     string-width "^1.0.2"
 
-within-document@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/within-document/-/within-document-0.0.1.tgz#59061255900d0c362cfc0c79c6d609e67286ba93"
-
 wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
@@ -2266,9 +2126,3 @@ write@^0.2.1:
 yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
-
-yields-traverse@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/yields-traverse/-/yields-traverse-0.1.1.tgz#bb3810f32764fddfb15087ac3db62a508e064d8a"
-  dependencies:
-    matches-selector "*"
