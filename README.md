@@ -3,6 +3,8 @@
 > Qual sua meta é simplemente uma ferramenta que ajudará você na hora de contabilizar
 > o seu saldo em criptomoedas.
 
+![Visualização do sistema](./public/img/print.png)
+
 ## Como usá-la?
 
 > Simples! Faça download dos arquivos em seu computador, edite a variável global disponível no
@@ -29,5 +31,15 @@
 - Usamos o [CoinMarketCap] para obter os dados, portanto, a nome da moeda aqui adicionada deve corresponder com o id da mesma na API;
 - Foi testado apenas no Google Chrome e não está responsivo (ainda) \`:^P.
 
+### Como obter id da moeda?
+
+Acesse o [CoinMarketCap], pesquise sobre a moeda desejada, e confira a URL.
+O ID vem logo após o termo `currencies`.
+
+#### Exemplo:
+
+- *Moeda*: Request Network;
+- *URL*: `https://coinmarketcap.com/currencies/request-network/`;
+- *Logo*, o ID é `request-network`.
 
 [CoinMarketCap]: <https://coinmarketcap.com>
