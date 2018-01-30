@@ -23,7 +23,17 @@
                         <p id="detail-goal"></p>
                     </div>
                 </div>
-                <ul id="coins-list"></ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Montante real</th>
+                            <th>Importância</th>
+                            <th>Contabilizar</th>
+                        </tr>
+                    </thead>
+                    <tbody class="coins-table" id="coins-table"></tbody>
+                </table>
             </main>
             <footer class="footer">
                 <p>
@@ -60,10 +70,13 @@
         </script>
 
         <!-- Dependencies -->
-        <script src="libs/currencyformatter.js/currencyFormatter.min.js"></script>
-        <script src="libs/axios/dist/axios.min.js"></script>
+        <script src="lib/currencyformatter.js/currencyFormatter.min.js"></script>
+        <script src="lib/axios/dist/axios.min.js"></script>
 
         <!-- Source -->
         <script src="js/main.js"></script>
+
+        <!-- Develpment -->
+        <script src="http://localhost:35729/livereload.js"></script>
     </body>
 </html>

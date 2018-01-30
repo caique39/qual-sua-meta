@@ -33,8 +33,9 @@
     flex-direction: column;
     font-family: 'Ubuntu';
     height: 100vh;
-    padding: 40px 80px;
+    padding: 30px 80px;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .main {
@@ -61,11 +62,17 @@
     font-size: 1.5em;
 }
 
+thead {
+    display: none;
+}
+
 /* Components */
-#coins-list {
-    height: 50vh;
-    margin: 20px 0;
-    max-height: 50vh;
+.coins-table {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 51vh;
+    max-height: 51vh;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -82,13 +89,10 @@
     background-color: #8e44ad;
     border-radius: 5px;
     color: rgba(255, 255, 255, 0.85);
-    display: flex;
     font-size: 1.5em;
-    justify-content: space-between;
-    list-style: none;
+    text-align: start;
     margin-bottom: 10px;
     margin-right: 5px;
-    padding: 10px;
     transition: all 1s ease-in-out;
 }
 
@@ -100,13 +104,13 @@
 
 .coin-list > .coin {
     font-weight: bold;
-    min-width: 450px;
+    max-width: 450px;
     text-transform: capitalize;
-    width: 450px;
 }
 
 .list-item {
-    padding: 0 15px
+    padding: 5px 15px;
+    border-radius: 5px;
 }
 
 .use-coin {
@@ -116,18 +120,20 @@
     cursor: pointer;
     outline: none;
     transition: all 500ms ease-in-out;
+    text-align: center;
 }
 
 .use-coin:hover {
     background-color: rgba(0, 0, 0, .1);
 }
 
-.use-coin > .show-coin {
+.show-coin {
     width: 32px;
 }
 
 #amount {
     font-size: 8em;
+    transition: opacity 200ms ease-in-out;
 }
 
 

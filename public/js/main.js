@@ -94,18 +94,20 @@
         return node.addEventListener('click', useCoinButton.bind(null, node), false);
     };
 
-    const listCoinComponent = coin => {
-        return `<li class="coin-list ${checkIfIsLocked(coin.symbol) ? 'no-show' : ''}">
-                <span class="list-item coin">${coin.name} (${coin.price_btc})</span>
-                <span class="list-item balance">${coin.balance} (${coin.balance_btc})</span>
-                <span class="list-item represent-percentage">${coin.importance}</span>
-                <button class="list-item use-coin" data-coin=${coin.symbol}>
-                    <img class="show-coin"
-                        src="img/visibility.svg"
-                        alt="Não contabilizar moeda"
-                        title="Não contabilizar moeda">
-                </button>
-            </li>`;
+    const CoinComponent = coin => {
+        return `<tr class="coin-list ${checkIfIsLocked(coin.symbol) ? 'no-show' : ''}">
+                    <td class="list-item coin">
+                        ${coin.name} (${coin.price_btc})
+                    </td>
+                    <td class="list-item balance">${coin.balance} (${coin.balance_btc})</td>
+                    <td class="list-item represent-percentage">${coin.importance}</td>
+                    <td class="list-item">
+                        <button class="list-item use-coin" data-coin=${coin.symbol}>
+                            ${checkIfIsLocked(coin.symbol) ? '<img class="show-coin"' + 'src="img/visibility.svg"' + 'alt="Não contabilizar moeda"' + 'title="Não contabilizar moeda">' : '<img class="show-coin"' + 'src="img/no-visibility.svg"' + 'alt="Contabilizar moeda"' + 'title="Contabilizar moeda">'}
+                        </button>
+                    </td>
+                </td>
+            </tr>`;
     };
 
     const mapCoinList = (data, amount) => {
@@ -115,8 +117,8 @@
     };
 
     const showList = coinsList => {
-        const printList = print(document.getElementById('coins-list'));
-        const listCoinsDOM = coinsList.map(listCoinComponent).join('\n');
+        const printList = print(document.getElementById('coins-table'));
+        const listCoinsDOM = coinsList.map(CoinComponent).join('\n');
 
         printList('');
         printList(listCoinsDOM);
@@ -127,8 +129,15 @@
         const progress = percentageBalanceByAmount(amount, goal);
 
         if (amount >= goal) {
+            if (!localStorage.getItem('audio')) {
+                const winnerAudio = new Audio('sound/The Wolf of Wall Street - Humming.mp3');
+                winnerAudio.play();
+            }
+
+            localStorage.setItem('audio', true);
             printGoal('Parabéns! Você atingiu sua meta! Que tal aproveitar seus lucros?');
         } else {
+            localStorage.setItem('audio', false);
             printGoal(`Você já atingiu <strong>${progress}</strong> da meta!`);
         }
 
@@ -136,11 +145,15 @@
     };
 
     const init = async () => {
+        balanceNode.style.opacity = 0;
+
         const data = await getDataOfCoins(COINS, CURRENCY);
         const amount = getAmountByCoins(data, COINS, CURRENCY);
 
         print(goalNode)(`${convertToDefault(GOAL)}.`);
         print(balanceNode)(`${convertToDefault(amount)}`);
+
+        balanceNode.style.opacity = 1;
 
         checkGoal(amount, GOAL);
         showList(mapCoinList(data, amount));
@@ -149,5 +162,5 @@
     };
 
     init();
-    setInterval(() => init(), 10000);
+    setInterval(() => init(), 100000);
 })(axios, OSREC, document, window);
